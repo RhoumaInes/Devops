@@ -28,45 +28,45 @@ public class SessionServiceTest {
 
 	@Autowired
 	SessionService service;
-	@Autowired
-	SessionRepository rep;
+	//@Autowired
+	//SessionRepository rep;
 	@Autowired
 	FormateurService fs;
-	@Autowired
-	FormateurRepository repF;
+	//@Autowired
+	//FormateurRepository repF;
 	
-	/*@Test
+	@Test
 	public void testAddSession() {
 		Long savedSeesion = service.addSession(new Session ("The DevOps Handbook", 50L));
-		Session s = rep.findById(savedSeesion).get();
+		Session s = service.TrouverSession(savedSeesion);
 		log.info(s.getDescription());
 		assertThat(savedSeesion).isGreaterThan(0);
 		//slog.info("sessione ajoutee!!!"+savedSeesion);
 		try {
-			rep.findById(savedSeesion);
+			service.TrouverSession(savedSeesion);
 			log.info("sesion ajoutee");
 		} catch (Exception e) {
 			log.error(savedSeesion+ "non ajoutee :D");
 		}
-	}*/
+	}
 	
 	@Test
 	public void testSuppSession() {
 		Long savedSession = service.addSession(new Session ("The DevOps", 90L));
-		Session s = rep.findById(savedSession).get();
+		Session s = service.TrouverSession(savedSession);
 	    service.supprimerSession(savedSession);
-	    assertNull(rep.findById(savedSession).get());
+	    assertNull(service.TrouverSession(savedSession));
 	    log.info("session with id"+savedSession+"has been deleted");
 	}
 	
-	/*@Test
+	@Test
 	public void testmodifSession() {
 		Long savedSession = service.addSession(new Session ("The DevOps", 90L));
-		Session s = rep.findById(savedSession).get();
+		Session s = service.TrouverSession(savedSession);
 		s.setDescription("soa");
 		s.setDuree(23L);
 		Long updatedSession= service.modifierSession(s);
-		s = rep.findById(updatedSession).get();
+		s = service.TrouverSession(updatedSession);
 		if ((s.getDescription().equals("soa")) & (s.getDuree().equals(23L)) ){
 			log.info("it was modified"+updatedSession);
 		}
@@ -79,12 +79,12 @@ public class SessionServiceTest {
     	Long savedSession = service.addSession(new Session ("The DevOps", 90L));
     	Long savedFormateur = fs.addFormateur(new Formateur("marwa", "belheni"));
     	service.affecterFormateurASession(savedFormateur, savedSession);
-    	Session s=rep.findById(savedSession).get();
-    	Formateur f = repF.findById(savedFormateur).get();
+    	Session s=service.TrouverSession(savedSession);;
+    	Formateur f = fs.TrouverFormateur(savedFormateur);
     	assertTrue(s.getFormateur().equals(f));
     	log.info("affectation efectuee avec succes du formateur "+savedFormateur+"a la session"+savedSession);
     	
-    }*/
+    }
 		
 		
 		

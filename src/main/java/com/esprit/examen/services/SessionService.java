@@ -45,5 +45,10 @@ public class SessionService implements ISessionService{
 	   frm.save(f);
 	
 	}
+	
+	@Override
+	public Session TrouverSession(Long sessionId) {
+		return sessionRepository.findById(sessionId).get();
+	}
 
 }

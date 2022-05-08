@@ -14,4 +14,6 @@ public interface IFormateurService {
 	//Long nombreFormateursImpliquesDansUnCours(TypeCours typeCours);
 		
 	List<Formateur> listFormateurs();
+	
+	Formateur TrouverFormateur(Long formateurId);
 }

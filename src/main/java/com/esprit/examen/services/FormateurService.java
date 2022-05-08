@@ -39,6 +39,11 @@ public class FormateurService implements IFormateurService{
 	//}
 
 
+	@Override
+	public Formateur TrouverFormateur(Long formateurId) {
+		
+		return formateurRepository.findById(formateurId).get();
+	}
 
 	@Override
 	public List<Formateur> listFormateurs() {
