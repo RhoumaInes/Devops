@@ -72,6 +72,7 @@
                <artifactId>sonar-maven-plugin</artifactId>
                <version>3.7.0.1746</version>
 			 </plugin>
+
 			<plugin>
 				<groupId>org.jacoco</groupId>
                  <artifactId>jacoco-maven-plugin</artifactId>
@@ -92,8 +93,10 @@
           <phase>test</phase>
       </execution>
     </executions>
-			</plugin>	
+    </plugin>	
+
+
 		</plugins>
-	</build>
+		</build>
 
 </project>
