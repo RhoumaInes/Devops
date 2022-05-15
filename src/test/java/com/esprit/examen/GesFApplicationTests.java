@@ -1,4 +1,4 @@
-package com.esprit.examen;
+/*package com.esprit.examen;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,4 +10,4 @@ class GesFApplicationTests {
 	void contextLoads() {
 	}
 
-}
+}*/
