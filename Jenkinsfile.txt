@@ -23,4 +23,9 @@ pipeline {
             }
         }
     }
+    post {
+        failure {
+            mail to: ines.rhouma@esprit.tn, subject: 'The Pipeline failed :('
+        }
+    }
 }
