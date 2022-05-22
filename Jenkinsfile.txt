@@ -25,7 +25,7 @@ pipeline {
     }
     post {
         failure {
-            mail to: rhoumainesiset@gmail.com, subject: 'The Pipeline failed'
+	    emailext body: 'The Pipeline failed', subject: 'The Pipeline failed', to: 'ines.rhouma@esprit.tn'
         }
     }
     
