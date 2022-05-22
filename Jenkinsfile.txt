@@ -30,11 +30,3 @@ pipeline {
         }
     }
 }
-
-<!-- https://mvnrepository.com/artifact/org.jacoco/org.jacoco.agent -->
-		<dependency>
-		    <groupId>org.jacoco</groupId>
-		    <artifactId>org.jacoco.agent</artifactId>
-		    <version>0.7.9</version>
-		    <scope>test</scope>
-		</dependency>
