@@ -1,11 +1,5 @@
 pipeline {
     agent any
-    options {
-        timeout(time: 3, unit: 'MINUTES')
-        timestamps()
-        buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-
     stages {
         stage('Checkout Git') {
             steps {
