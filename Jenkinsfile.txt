@@ -1,11 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout Git') {
-            steps {
-                git branch: 'inesBranch', credentialsId: 'jenkins-user-for-org.jacoco.agent', url: 'https://github.com/RhoumaInes/Devops'
-            }
-        }
+        
         stage('Test Build') {
             steps {
                 bat "mvn package"
