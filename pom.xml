@@ -13,6 +13,14 @@
 	<version>1.0</version>
 	<name>GesF</name>
 	<description>springBootProject</description>
+	<distributionManagement>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+            <id>deploymentRepo</id>
+            <url>http://localhost:8081/repository/maven-releases/</url>
+            <layout>default</layout>
+        </repository>
+	</distributionManagement>
 	<properties>
 		<java.version>1.8</java.version>
 		<!-- JaCoCo Properties -->
@@ -22,6 +30,7 @@
 	    <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
 	    <sonar.language>java</sonar.language>
 	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -90,7 +99,46 @@
 			        </execution>
 			    </executions>
 			</plugin>
-						
+			<plugin>
+			   <artifactId>maven-deploy-plugin</artifactId>
+			   <version>2.8.1</version>
+			   <executions>
+			      <execution>
+			         <id>default-deploy</id>
+			         <phase>deploy</phase>
+			         <goals>
+			            <goal>deploy</goal>
+			         </goals>
+			      </execution>
+			   </executions>
+			</plugin>	
+			<plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-deploy-plugin</artifactId>
+			   <version>${maven-deploy-plugin.version}</version>
+			   <configuration>
+			      <skip>true</skip>
+			   </configuration>
+			</plugin>
+			<plugin>
+			   <groupId>org.sonatype.plugins</groupId>
+			   <artifactId>nexus-staging-maven-plugin</artifactId>
+			   <version>1.5.1</version>
+			   <executions>
+			      <execution>
+			         <id>default-deploy</id>
+			         <phase>deploy</phase>
+			         <goals>
+			            <goal>deploy</goal>
+			         </goals>
+			      </execution>
+			   </executions>
+			   <configuration>
+			      <serverId>nexus</serverId>
+			      <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+			      <skipStaging>true</skipStaging>
+			   </configuration>
+			</plugin>
 		</plugins>
 	</build>
 
