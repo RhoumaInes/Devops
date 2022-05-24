@@ -20,8 +20,8 @@ pipeline {
         }
     }
     post {
-        failure {
-	    emailext body: 'The Pipeline failed', subject: 'The Pipeline failed', to: 'ines.rhouma@esprit.tn'
+        always {
+	    emailext body: 'The Pipeline failed', subject: 'The Pipeline failed', to: 'rhoumainesiset@gmail.com'
         }
     }
     
