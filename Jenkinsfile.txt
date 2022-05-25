@@ -20,7 +20,7 @@ pipeline {
         }
     }
     post {
-        always{
+        failure {
             mail to: "ines.rhouma@esprit.tn",
             subject: "The Pipeline failed",
             body: "The Pipeline failed"
