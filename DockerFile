@@ -1,0 +1,2 @@
+from openjdk:8-jdk-alpine expose 8083 add target/spring-boot-data-jpa-entity-13.0.jar spring-boot-data-jpa-ENTRYPOINT ["java","-jar","/spring-boot-data-jpa-entity-13.0.jar"]
+from openjdk:8-jdk-alpine expose 8083 add target/GesFormation-13.0.jar GesFormation-ENTRYPOINT ["java","-jar","/GesFormation-13.0.jar"]
