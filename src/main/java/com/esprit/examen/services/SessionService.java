@@ -16,14 +16,14 @@ public class SessionService implements ISessionService{
 	SessionRepository sessionRepository;
 	@Override
 	public Long addSession(Session session) {
-		sessionRepository.save(session);
-		return session.getId();
+		Session sr = sessionRepository.save(session);
+		return sr.getId();
 	}
 
 	@Override
 	public Long modifierSession(Session session) {
-		sessionRepository.save(session);
-		return session.getId();
+		Session sr = sessionRepository.save(session);
+		return sr.getId();
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class SessionService implements ISessionService{
 
 	@Override
 	public void affecterFormateurASession(Long formateurId, Long sessionId) {
-			/*todo*/
+			
 		
 	}
 

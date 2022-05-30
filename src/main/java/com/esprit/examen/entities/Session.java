@@ -13,7 +13,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Session implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -28,72 +37,12 @@ public class Session implements Serializable{
 	@ManyToOne
     Formateur formateur;
 	@ManyToMany
-	Set<Cours> cours;
+	private Set<Cours> cours;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public Date getDateDebut() {
-		return dateDebut;
-	}
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-	public Date getDateFin() {
-		return dateFin;
-	}
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
-	}
-	public Long getDuree() {
-		return duree;
-	}
-	public void setDuree(Long duree) {
-		this.duree = duree;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public Formateur getFormateur() {
-		return formateur;
-	}
-	public void setFormateur(Formateur formateur) {
-		this.formateur = formateur;
-	}
-	public Set<Cours> getCours() {
-		return cours;
-	}
-	public void setCours(Set<Cours> cours) {
-		this.cours = cours;
-	}
 	@Override
 	public String toString() {
 		return "Session [id=" + id + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", duree=" + duree
 				+ ", description=" + description + "]";
-	}
-	public Session(Long id, Date dateDebut, Date dateFin, Long duree, String description) {
-		super();
-		this.id = id;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
-		this.duree = duree;
-		this.description = description;
-	}
-	public Session(String description, Long duree) {
-		super();
-		this.description = description;
-		this.duree = duree;
-	
-	}
-	public Session() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	

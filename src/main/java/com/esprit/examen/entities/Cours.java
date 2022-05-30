@@ -1,6 +1,7 @@
 package com.esprit.examen.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -11,7 +12,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cours implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -23,30 +33,6 @@ public class Cours implements Serializable {
 	private String intitule;
 	@ManyToMany(mappedBy="cours")
 	private Set<Session> sessions;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	public TypeCours getTypeCours() {
-		return typeCours;
-	}
-	public void setTypeCours(TypeCours typeCours) {
-		this.typeCours = typeCours;
-	}
-	public String getIntitule() {
-		return intitule;
-	}
-	public void setIntitule(String intitule) {
-		this.intitule = intitule;
-	}
 	
 	
 	public Set<Session> getSessions() {
@@ -60,22 +46,11 @@ public class Cours implements Serializable {
 		return "Cours [id=" + id + ", description=" + description + ", typeCours=" + typeCours + ", intitule="
 				+ intitule + "]";
 	}
-	public Cours(Long id, String description, TypeCours typeCours, String intitule) {
-		super();
-		this.id = id;
-		this.description = description;
-		this.typeCours = typeCours;
-		this.intitule = intitule;
-	}
 	public Cours(String description, TypeCours typeCours, String intitule) {
 		super();
 		this.description = description;
 		this.typeCours = typeCours;
 		this.intitule = intitule;
-	}
-	public Cours() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	
